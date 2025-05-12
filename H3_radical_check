@@ -1,0 +1,16 @@
+ # Define the polynomial ring over GF(2) with generators u, v, w, t
+R.<u,v,w,t> = PolynomialRing(GF(2))
+
+# Define the ideal L in R with the given generators
+L = R.ideal([w**2 + t**3, v, u**2*t + u*w, u**2*w + u*t**2])
+
+# Compute the radical of L
+radL = L.radical()
+
+# Check if L is radical (i.e., if L equals its own radical)
+is_radical = (radL == L)
+
+print("The generators of L are:")
+for g in L.gens():
+    print(g)
+print("\nIs L radical?", is_radical)
